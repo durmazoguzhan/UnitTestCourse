@@ -5,16 +5,22 @@ namespace UnitTestCourse.Test
 {
     public class CalculatorTest
     {
+        private readonly Calculator _calculator;
+
+        public CalculatorTest()
+        {
+            _calculator = new Calculator();
+        }
+
         [Fact]
         public void AddTest()
         {
             // Arrange
             int firstNumber = 5;
             int secondNumber = 3;
-            Calculator calculator = new();
 
             // Act
-            int total = calculator.Add(firstNumber, secondNumber);
+            int total = _calculator.Add(firstNumber, secondNumber);
 
             // Assert
             Assert.Equal(8, total);
@@ -26,8 +32,7 @@ namespace UnitTestCourse.Test
         [InlineData(3, 3, 0)]
         public void SubtractTest(int firstNumber, int secondNumber, int expectedTotal)
         {
-            Calculator calculator = new();
-            int actualTotal = calculator.Subtract(firstNumber, secondNumber);
+            int actualTotal = _calculator.Subtract(firstNumber, secondNumber);
             Assert.Equal(expectedTotal, actualTotal);
         }
     }
