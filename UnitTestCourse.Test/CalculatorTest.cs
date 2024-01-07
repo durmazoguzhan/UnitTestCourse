@@ -35,5 +35,24 @@ namespace UnitTestCourse.Test
             int actualTotal = _calculator.Subtract(firstNumber, secondNumber);
             Assert.Equal(expectedTotal, actualTotal);
         }
+
+        [Theory]
+        [InlineData(10, 5, 2)]
+        [InlineData(5, 10, 0.5)]
+        public void Divide_SimpleValues_ReturnTotal(double firstNumber, double secondNumber, double expectedTotal)
+        {
+            double actualTotal = _calculator.Divide(firstNumber, secondNumber);
+            Assert.Equal(expectedTotal, actualTotal);
+        }
+
+        [Theory]
+        [InlineData(0, 0, 0)]
+        [InlineData(15, 0, 0)]
+        [InlineData(0, 5, 0)]
+        public void Divide_ZeroValues_ReturnZero(double firstNumber, double secondNumber, double expectedTotal)
+        {
+            double actualTotal = _calculator.Divide(firstNumber, secondNumber);
+            Assert.Equal(expectedTotal, actualTotal);
+        }
     }
 }

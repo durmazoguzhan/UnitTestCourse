@@ -17,9 +17,12 @@
             return firstNumber * secondNumber;
         }
 
-        public int Divide(int firstNumber, int secondNumber)
+        public double Divide(double firstNumber, double secondNumber)
         {
-            return firstNumber / secondNumber;
+            if (secondNumber == 0)
+                return 0;
+            else
+                return firstNumber / secondNumber;
         }
     }
 }
